@@ -11,7 +11,7 @@ on:
 jobs:
     # Format, lint, test
     format-lint-lwc-tests:
-        runs-on: trailheadapps-Ubuntu
+        runs-on: ubuntu-latest
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
