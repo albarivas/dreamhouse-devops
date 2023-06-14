@@ -56,7 +56,7 @@ jobs:
                   flags: LWC
 
     scratch-org-test:
-        runs-on: trailheadapps-Ubuntu
+        runs-on: ubuntu-latest
         needs: format-lint-lwc-tests
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
