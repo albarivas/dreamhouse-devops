@@ -5,7 +5,7 @@ name: CI on PR
 on:
     workflow_dispatch:
     pull_request:
-        types: [opened, edited, synchronize, reopened]
+        types: [opened, edited, synchronize]
 
 # Jobs to be executed
 jobs:
@@ -60,6 +60,19 @@ jobs:
         needs: format-lint-lwc-tests
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
+            # Checkout the source code
+            - name: 'Checkout source code'
+              uses: actions/checkout@v3
+
+            # Run PMD scan
+            - name: 'Run PMD scan'
+              uses: pmd/pmd-github-action@v1.4.0
+              id: pmd
+              with:
+                  version: '6.55.0'
+                  sourcePath: 'force-app'
+                  rulesets: 'ruleset.xml'
+
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
@@ -67,10 +80,6 @@ jobs:
                   nodeInstallPath=$(npm config get prefix)
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
-
-            # Checkout the source code
-            - name: 'Checkout source code'
-              uses: actions/checkout@v3
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
