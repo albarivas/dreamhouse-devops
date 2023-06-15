@@ -5,7 +5,7 @@ name: CI on PR
 on:
     workflow_dispatch:
     pull_request:
-        types: [opened, edited, synchronize, reopened]
+        types: [opened, edited, synchronize]
 
 # Jobs to be executed
 jobs:
@@ -60,6 +60,19 @@ jobs:
         needs: format-lint-lwc-tests
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
+            # Checkout the source code
+            - name: 'Checkout source code'
+              uses: actions/checkout@v3
+
+            # Run PMD scan
+            - name: 'Run PMD scan'
+              uses: pmd/pmd-github-action@v1.4.0
+              id: pmd
+              with:
+                  version: '6.55.0'
+                  sourcePath: 'force-app'
+                  rulesets: 'ruleset.xml'
+
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
@@ -67,10 +80,6 @@ jobs:
                   nodeInstallPath=$(npm config get prefix)
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
-
-            # Checkout the source code
-            - name: 'Checkout source code'
-              uses: actions/checkout@v3
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
@@ -96,12 +105,12 @@ jobs:
               run: sf project deploy start
 
             # Assign permissionset
-            # - name: 'Assign permissionset to default user'
-            #   run: sf org assign permset -n dreamhouse
+            - name: 'Assign permissionset to default user'
+              run: sf org assign permset -n dreamhouse
 
             # Import sample data
-            # - name: 'Import sample data'
-            #   run: sf data tree import -p ./data/sample-data-plan.json
+            - name: 'Import sample data'
+              run: sf data tree import -p ./data/sample-data-plan.json
 
             # Run Apex tests in scratch org
             - name: 'Run Apex tests'
