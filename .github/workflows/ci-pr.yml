@@ -105,12 +105,12 @@ jobs:
               run: sf project deploy start
 
             # Assign permissionset
-            # - name: 'Assign permissionset to default user'
-            #   run: sf org assign permset -n dreamhouse
+            - name: 'Assign permissionset to default user'
+              run: sf org assign permset -n dreamhouse
 
             # Import sample data
-            # - name: 'Import sample data'
-            #   run: sf data tree import -p ./data/sample-data-plan.json
+            - name: 'Import sample data'
+              run: sf data tree import -p ./data/sample-data-plan.json
 
             # Run Apex tests in scratch org
             - name: 'Run Apex tests'
