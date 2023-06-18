@@ -9,12 +9,6 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>propertySummary</componentName>
-                <identifier>propertySummary</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentInstanceProperties>
                     <name>flowLayout</name>
                     <value>oneColumn</value>
@@ -41,6 +35,12 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>propertySummary</componentName>
+                <identifier>propertySummary</identifier>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentName>propertyMap</componentName>
