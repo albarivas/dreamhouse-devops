@@ -3,12 +3,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>propertySummary</componentName>
-                <identifier>propertySummary</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentName>propertyFilter</componentName>
                 <identifier>propertyFilter</identifier>
             </componentInstance>
@@ -41,6 +35,18 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>propertySummary</componentName>
+                <identifier>propertySummary</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>daysOnMarket</componentName>
+                <identifier>c_daysOnMarket</identifier>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentName>propertyMap</componentName>
