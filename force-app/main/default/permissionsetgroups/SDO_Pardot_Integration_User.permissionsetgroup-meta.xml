@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>What: Contains all the Pardot Permissions Sets for the B2BMA Integration User.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Pardot - Integration User</label>
+    <permissionSets>SDO_Pardot_Base_Access</permissionSets>
+    <permissionSets>engage_reports__Engage_Reports_Integration_User</permissionSets>
+    <permissionSets>force__B2BMarketingAnalytics</permissionSets>
+    <permissionSets>pi__Pardot_Integration_User</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
