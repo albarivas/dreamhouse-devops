@@ -37,14 +37,20 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>propertyMap</componentName>
-                <identifier>propertyMap</identifier>
+                <componentName>propertySummary</componentName>
+                <identifier>propertySummary</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>propertySummary</componentName>
-                <identifier>propertySummary</identifier>
+                <componentName>daysOnMarket</componentName>
+                <identifier>c_daysOnMarket</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>propertyMap</componentName>
+                <identifier>propertyMap</identifier>
             </componentInstance>
         </itemInstances>
         <name>right</name>
